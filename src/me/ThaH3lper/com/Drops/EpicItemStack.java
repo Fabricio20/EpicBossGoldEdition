@@ -18,6 +18,7 @@ public class EpicItemStack {
 		this.chance = chance;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public EpicItemStack(String s)
 	{
 		String[] part = s.split(" ");

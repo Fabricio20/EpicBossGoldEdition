@@ -50,6 +50,7 @@ public class SkillDamage {
 		
 	}
 
+	@SuppressWarnings("deprecation")
 	private static void DoDamage(LivingEntity l, Player p, double damage, boolean ignorearmor)	{
 		if(p.isDead()) return;
 		

@@ -40,7 +40,9 @@ public class MobSkill implements Listener{
 		} else	{
 			if(e.getDamager() instanceof Projectile)	{
 				if(em.maxCombatDistance > 0)	{
-					if(l.getLocation().distanceSquared(((Projectile)e.getDamager()).getShooter().getLocation()) > em.maxCombatDistance*em.maxCombatDistance)	{
+					Projectile project = (Projectile) e.getDamager();
+					// TODO
+					if(l.getLocation().distanceSquared((project.getShooter().getLocation()) > em.maxCombatDistance*em.maxCombatDistance))	{
 						e.setCancelled(true);
 						return;
 					}

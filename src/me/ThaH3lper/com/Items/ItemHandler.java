@@ -17,6 +17,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 public class ItemHandler {
 
+	@SuppressWarnings("deprecation")
 	public static ItemStack getItemStack(EpicItems ei)
 	{
 		int id = ei.id;

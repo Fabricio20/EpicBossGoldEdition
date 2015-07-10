@@ -26,6 +26,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.projectiles.ProjectileSource;
 
 public class MobDrop implements Listener{
 
@@ -118,8 +119,9 @@ public class MobDrop implements Listener{
 	    if (entityDamageEvent != null && !entityDamageEvent.isCancelled() && (entityDamageEvent instanceof EntityDamageByEntityEvent)) {
 	        Entity damager = ((EntityDamageByEntityEvent) entityDamageEvent).getDamager();
 	 
-	        if (damager instanceof Projectile) {
-	            LivingEntity shooter = ((Projectile) damager).getShooter();
+	        if(damager instanceof Projectile) {
+	        	Projectile projectile = (Projectile) damager;
+	            ProjectileSource shooter = projectile.getShooter();
 	            if (shooter != null)
 	            {
 	            	if(shooter instanceof Player)

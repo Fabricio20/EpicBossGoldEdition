@@ -40,6 +40,7 @@ public class SaveLoad {
 		reloadCustomConfig();
 		saveCustomConfig();
 	}
+	@SuppressWarnings("deprecation")
 	public void reloadCustomConfig() {
 	    if (data == null) 
 	    {

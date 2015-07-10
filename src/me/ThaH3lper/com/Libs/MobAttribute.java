@@ -1,24 +1,24 @@
 package me.ThaH3lper.com.Libs;
 
-import net.minecraft.server.v1_6_R3.AttributeInstance;
-import net.minecraft.server.v1_6_R3.EntityInsentient;
-import net.minecraft.server.v1_6_R3.GenericAttributes;
+import net.minecraft.server.v1_8_R3.AttributeInstance;
+import net.minecraft.server.v1_8_R3.EntityInsentient;
+import net.minecraft.server.v1_8_R3.GenericAttributes;
 
-import org.bukkit.craftbukkit.v1_6_R3.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftLivingEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 
 public class MobAttribute {
 	
 	  public static void setMaxHealth(Entity e, double health) {
-	    AttributeInstance attributes = ((EntityInsentient)((CraftLivingEntity)e).getHandle()).getAttributeInstance(GenericAttributes.a);
+	    AttributeInstance attributes = ((EntityInsentient)((CraftLivingEntity)e).getHandle()).getAttributeInstance(GenericAttributes.maxHealth);
 	    attributes.setValue(health);
 	    LivingEntity l = (LivingEntity) e;
 	    l.setHealth(l.getMaxHealth());
 	  }
 
 	  public static void setFollowRange(Entity e, double range) {
-	    AttributeInstance attributes = ((EntityInsentient)((CraftLivingEntity)e).getHandle()).getAttributeInstance(GenericAttributes.b);
+	    AttributeInstance attributes = ((EntityInsentient)((CraftLivingEntity)e).getHandle()).getAttributeInstance(GenericAttributes.FOLLOW_RANGE);
 	    if(attributes != null)
 	    	attributes.setValue(range);
 	  }
@@ -30,13 +30,13 @@ public class MobAttribute {
 	  }
 
 	  public static void setMobSpeed(Entity e, double speed) {
-	    AttributeInstance attributes = ((EntityInsentient)((CraftLivingEntity)e).getHandle()).getAttributeInstance(GenericAttributes.d);
+	    AttributeInstance attributes = ((EntityInsentient)((CraftLivingEntity)e).getHandle()).getAttributeInstance(GenericAttributes.MOVEMENT_SPEED);
 	    if(attributes != null)
 	    	attributes.setValue(speed);
 	  }
 
 	  public static void setAttackDamage(Entity e, double damage) {
-	    AttributeInstance attributes = ((EntityInsentient)((CraftLivingEntity)e).getHandle()).getAttributeInstance(GenericAttributes.e);
+	    AttributeInstance attributes = ((EntityInsentient)((CraftLivingEntity)e).getHandle()).getAttributeInstance(GenericAttributes.ATTACK_DAMAGE);
 	    if(attributes != null)
 	    	attributes.setValue(damage);
 	  }

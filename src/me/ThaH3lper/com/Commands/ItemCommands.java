@@ -22,6 +22,7 @@ public class ItemCommands {
 	//eb item get [item]
 	//eb item show [filename]
 	
+	@SuppressWarnings("deprecation")
 	public static void getItem(CommandSender sender, Command cmd, String commandlabel, String[] args)
 	{
 		if(args.length == 1)
