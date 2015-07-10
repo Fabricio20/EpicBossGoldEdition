@@ -221,15 +221,16 @@ public class Attributes {
         this.nmsStack = CraftItemStack.asNMSCopy(stack);
         
         // Load NBT
-        if (nmsStack.tag == null) {
-            parent = (nmsStack.tag = new NBTTagCompound());
+        if (nmsStack.getTag() == null) {
+        	nmsStack.setTag(new NBTTagCompound());
+            parent = nmsStack.getTag();
         } else {
-            parent = nmsStack.tag;
+            parent = nmsStack.getTag();
         }
         
         // Load attribute list
         if (parent.hasKey("AttributeModifiers")) {
-            attributes = parent.getList("AttributeModifiers");
+            attributes = parent.getList("AttributeModifiers", 0); // TODO
         } else {
             attributes = new NBTTagList();
             parent.set("AttributeModifiers", attributes);

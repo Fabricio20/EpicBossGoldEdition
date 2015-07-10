@@ -6,6 +6,8 @@ import me.ThaH3lper.com.Mobs.MobCommon;
 import me.ThaH3lper.com.SaveLoad.LoadSetup;
 import me.ThaH3lper.com.Skills.SkillHandler;
 
+import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -13,6 +15,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.projectiles.ProjectileSource;
 
 public class MobSkill implements Listener{
 
@@ -41,8 +44,9 @@ public class MobSkill implements Listener{
 			if(e.getDamager() instanceof Projectile)	{
 				if(em.maxCombatDistance > 0)	{
 					Projectile project = (Projectile) e.getDamager();
-					// TODO
-					if(l.getLocation().distanceSquared((project.getShooter().getLocation()) > em.maxCombatDistance*em.maxCombatDistance))	{
+					ProjectileSource shooter = (ProjectileSource) project.getShooter();
+					Location toLoc = ((Entity)shooter).getLocation();
+					if(l.getLocation().distanceSquared(toLoc) > em.maxCombatDistance*em.maxCombatDistance) {
 						e.setCancelled(true);
 						return;
 					}
